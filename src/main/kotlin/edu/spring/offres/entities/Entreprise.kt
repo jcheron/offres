@@ -18,6 +18,9 @@ open class Entreprise {
     open lateinit var rs:String
 
     @Column(length = 255)
+    open lateinit var email: String
+
+    @Column(length = 255)
     open var adresse:String?=null
 
     @Column(length = 5)
@@ -28,9 +31,6 @@ open class Entreprise {
 
     @Column(length = 10)
     open var tel:String?=null
-
-    @Column(length = 255)
-    open var email:String?=null
 
     @OneToMany(mappedBy = "entreprise")
     open val offres= mutableSetOf<Offre>()

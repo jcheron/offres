@@ -1,0 +1,12 @@
+{{> partials/header }}
+<a class="button is-dark" href="/offres">Retour</a>
+
+<h1>Ajouter une offre</h1>
+<form method="post" action="/offres/new">
+  {{#offres}}
+  <input type="text" name="intitule" placeholder="Intitulé de l'offre">
+  <input type="text" name="description" placeholder="Description de l'offre">
+  <button v-if="intitule" type="submit">Valider</button>
+  {{/offres}}
+</form>
+{{> partials/footer}}
