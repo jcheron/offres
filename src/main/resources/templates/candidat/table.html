@@ -1,0 +1,48 @@
+<thead>
+<tr>
+    <th><input type="checkbox" name="select_all" id="select_all" title="Tout sélectionner"></th>
+    <th>Prénom</th>
+    <th>Nom</th>
+    <th>Email</th>
+    {{# formations}} {{/ formations}}
+    {{^ formations}}
+    <th>Formations</th>
+    {{/ formations}}
+</tr>
+</thead>
+<tbody>
+{{# formations}}
+<tr class="formation_row">
+    <td colspan="5"><b>{{libelle}}</b></td>
+</tr>
+{{# candidats}}
+<tr class="candidat_row">
+    <td><input type="checkbox" name="select_one" class="checkbox_candidat"></td>
+    <td>{{prenom}}</td>
+    <td>{{nom}}</td>
+    <td>{{email}}</td>
+</tr>
+{{/ candidats}}
+{{^ candidats}}
+<tr>
+    <td colspan="5">Aucun candidat trouvé</td>
+</tr>
+{{/ candidats}}
+{{/ formations}}
+{{^ formations}}
+{{# candidats}}
+<tr class="candidat_row">
+    <td><input type="checkbox" name="select_one" class="checkbox_candidat"></td>
+    <td>{{prenom}}</td>
+    <td>{{nom}}</td>
+    <td>{{email}}</td>
+    <td>{{# formations}} <span class="tag is-info">{{libelle}}</span> {{/ formations}}</td>
+</tr>
+{{/ candidats}}
+{{^ candidats}}
+<tr>
+    <td colspan="5">Aucun candidat trouvé</td>
+</tr>
+{{/ candidats}}
+{{/ formations}}
+</tbody>

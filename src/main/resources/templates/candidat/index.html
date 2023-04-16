@@ -6,13 +6,16 @@
     </div>
     <table class="table is-fullwidth is-striped table_candidate">
         <thead>
-        <tr>
-            <th><input type="checkbox" name="select_all" id="select_all" title="Tout sélectionner"></th>
-            <th>Prénom</th>
-            <th>Nom</th>
-            <th>Email</th>
-            <th>Formations</th>
-        </tr>
+            <tr>
+                <th><input type="checkbox" name="select_all" id="select_all" title="Tout sélectionner"></th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Email</th>
+                {{# formations}} {{/ formations}}
+                {{^ formations}}
+                    <th>Formations</th>
+                {{/ formations}}
+            </tr>
         </thead>
         <tbody>
             {{# formations}}
@@ -40,7 +43,7 @@
                         <td>{{prenom}}</td>
                         <td>{{nom}}</td>
                         <td>{{email}}</td>
-                        <td>{{# formations}} {{libelle}} - {{/ formations}}</td>
+                        <td>{{# formations}} <span class="tag is-info">{{libelle}}</span> {{/ formations}}</td>
                     </tr>
                 {{/ candidats}}
                 {{^ candidats}}

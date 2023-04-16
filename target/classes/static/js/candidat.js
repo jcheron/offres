@@ -9,7 +9,7 @@ window.addEventListener("load", () => {
              headers:headers
          }).then(request => {
             request.text().then(requestBody => {
-               setTbodyContent(request, requestBody);
+               setTableContent(request, requestBody);
             })
          });
       } else {
@@ -18,15 +18,15 @@ window.addEventListener("load", () => {
              headers:headers
          }).then(request => {
             request.text().then(requestBody => {
-               setTbodyContent(request, requestBody);
+                setTableContent(request, requestBody);
             })
          });
       }
    });
 
-   function setTbodyContent(request, requestBody) {
+   function setTableContent(request, requestBody) {
        if(request.ok === true) {
-           document.querySelector("tbody").innerHTML = requestBody;
+           document.querySelector("table").innerHTML = requestBody;
        }
    }
 

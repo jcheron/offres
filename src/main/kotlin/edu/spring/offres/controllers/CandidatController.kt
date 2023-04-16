@@ -30,7 +30,7 @@ class CandidatController {
         val partialRequest = request.getHeader("x-partial_request");
         model["candidats"] = candidatRepository.findAll();
         if(partialRequest == "true") {
-            return "/candidat/tbodyPart";
+            return "/candidat/table";
         } else {
             return "/candidat/index";
         }
@@ -41,7 +41,7 @@ class CandidatController {
         val partialRequest = request.getHeader("x-partial_request");
         model["formations"] = formationRepository.findAll();
         if(partialRequest == "true") {
-            return "/candidat/tbodyPart";
+            return "/candidat/table";
         } else {
             return "/candidat/index";
         }
