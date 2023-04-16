@@ -11,12 +11,13 @@
             <th>Prénom</th>
             <th>Nom</th>
             <th>Email</th>
+            <th>Formations</th>
         </tr>
         </thead>
         <tbody>
             {{# formations}}
                 <tr class="formation_row">
-                    <td colspan="4"><b>{{libelle}}</b></td>
+                    <td colspan="5"><b>{{libelle}}</b></td>
                 </tr>
                 {{# candidats}}
                     <tr class="candidat_row">
@@ -28,7 +29,7 @@
                 {{/ candidats}}
                 {{^ candidats}}
                     <tr>
-                        <td colspan="4">Aucun candidat trouvé</td>
+                        <td colspan="5">Aucun candidat trouvé</td>
                     </tr>
                 {{/ candidats}}
             {{/ formations}}
@@ -39,11 +40,12 @@
                         <td>{{prenom}}</td>
                         <td>{{nom}}</td>
                         <td>{{email}}</td>
+                        <td>{{# formations}} {{libelle}} - {{/ formations}}</td>
                     </tr>
                 {{/ candidats}}
                 {{^ candidats}}
                 <tr>
-                    <td colspan="4">Aucun candidat trouvé</td>
+                    <td colspan="5">Aucun candidat trouvé</td>
                 </tr>
                 {{/ candidats}}
             {{/ formations}}

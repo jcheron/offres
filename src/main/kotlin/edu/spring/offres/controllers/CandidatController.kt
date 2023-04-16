@@ -29,7 +29,6 @@ class CandidatController {
     {
         val partialRequest = request.getHeader("x-partial_request");
         model["candidats"] = candidatRepository.findAll();
-
         if(partialRequest == "true") {
             return "/candidat/tbodyPart";
         } else {
@@ -41,7 +40,6 @@ class CandidatController {
     fun listCandidatByFormation(model: ModelMap, request : HttpServletRequest) : String {
         val partialRequest = request.getHeader("x-partial_request");
         model["formations"] = formationRepository.findAll();
-
         if(partialRequest == "true") {
             return "/candidat/tbodyPart";
         } else {

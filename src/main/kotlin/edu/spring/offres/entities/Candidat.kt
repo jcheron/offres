@@ -19,4 +19,17 @@ open class Candidat {
 
     @OneToMany(mappedBy = "candidat")
     open val candidatAssociation = mutableSetOf<CandidatOffre>()
+
+    @ManyToMany
+    open var offres = mutableSetOf<Offre>()
+
+    fun getFormations() : MutableSet<Formation> {
+        val listFormations = mutableSetOf<Formation>()
+        offres.forEach{
+            it.formations.forEach {
+                listFormations.add(it)
+            }
+        }
+        return listFormations;
+    }
 }
