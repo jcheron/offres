@@ -34,5 +34,6 @@ open class Entreprise {
     open var email:String?=null
 
     @OneToMany(mappedBy = "entreprise")
+    @JsonBackReference
     open val offres= mutableSetOf<Offre>()
 }
