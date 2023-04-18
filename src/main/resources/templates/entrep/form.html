@@ -9,9 +9,10 @@
         <input class="input is-normal mg-small" type="email" name="email" placeholder="Email" value="{{#email}}{{email}}{{/email}}"><br>
         <input class="input is-normal mg-small" type="tel" name="tel" placeholder="Téléphone" pattern="[0-9]{10}" value="{{#tel}}{{tel}}{{/tel}}"><br>
         <input id="input_adresse" class="input is-normal mg-small" type="text" name="adresse" placeholder="Adresse" value="{{#adresse}}{{adresse}}{{/adresse}}"><br>
+        <input id="input_cp" class="input is-normal mg-small" type="text" name="cp" placeholder="Code postal" value="{{#cp}}{{cp}}{{/cp}}"><br>
         <input id="input_ville" list="list_ville" class="input is-normal mg-small" type="text" name="ville" placeholder="Ville" value="{{#ville}}{{ville}}{{/ville}}"><br>
         <datalist id="list_ville"></datalist>
-        <input id="input_cp" class="input is-normal mg-small" type="text" name="cp" placeholder="Code postal" value="{{#cp}}{{cp}}{{/cp}}"><br>
+
         <button class="button is-dark mg-small my-1" type="submit">Valider</button>
         <input class="button is-dark mg-small my-1" type="reset">
     {{/entrep}}
