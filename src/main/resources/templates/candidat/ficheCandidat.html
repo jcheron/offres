@@ -1,7 +1,9 @@
 {{> partials/header }}
 {{# candidat}}
     <h1 class="title"><a href="/candidat">Liste des Candidats</a> > {{prenom}} {{nom}}</h1>
+    <a href="/candidat/index" class="button is-info mb-3"><i class="fa-solid fa-chevron-left mr-1"></i> Retour</a>
     <div class="box">
+        <span class="user_icon"><i class="fa-solid fa-circle-user is-size-1"></i></span>
         <h2 class="subtitle subtitle_oneCandidat">{{prenom}} {{nom}}</h2>
         <div class="columns">
             <div class="column column-is-centered">
