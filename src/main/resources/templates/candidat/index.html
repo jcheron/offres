@@ -20,7 +20,7 @@
         <tbody>
             {{# formations}}
                 <tr class="formation_row">
-                    <td colspan="5"><b>{{libelle}}</b></td>
+                    <td colspan="5"><b>{{libelle}} ({{candidats.size}})</b></td>
                 </tr>
                 {{# candidats}}
                     <tr class="candidat_row">
@@ -39,7 +39,7 @@
             {{^ formations}}
                 {{# candidats}}
                     <tr class="candidat_row">
-                            <td><a href="/candidat/getCandidat/{{idCandidat}}"><input type="checkbox" name="select_one" class="checkbox_candidat"></a></td>
+                            <td><input type="checkbox" name="select_one" class="checkbox_candidat"></td>
                             <td><a href="/candidat/getCandidat/{{idCandidat}}">{{prenom}}</a></td>
                             <td><a href="/candidat/getCandidat/{{idCandidat}}">{{nom}}</a></td>
                             <td><a href="/candidat/getCandidat/{{idCandidat}}">{{email}}</a></td>
