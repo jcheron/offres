@@ -15,12 +15,13 @@
                 {{^ formations}}
                     <th>Formations</th>
                 {{/ formations}}
+                <th>CV</th>
             </tr>
         </thead>
         <tbody>
             {{# formations}}
                 <tr class="formation_row">
-                    <td colspan="5"><b>{{libelle}} ({{candidats.size}})</b></td>
+                    <td colspan="6"><b>{{libelle}} ({{candidats.size}})</b></td>
                 </tr>
                 {{# candidats}}
                     <tr class="candidat_row">
@@ -28,11 +29,12 @@
                         <td><a href="/candidat/getCandidat/{{idCandidat}}">{{prenom}}</a></td>
                         <td><a href="/candidat/getCandidat/{{idCandidat}}">{{nom}}</a></td>
                         <td><a href="/candidat/getCandidat/{{idCandidat}}">{{email}}</a></td>
+                        <td><a href="#" class="button is-dark is-small">{{prenom}}_{{nom}}.pdf</a></td>
                     </tr>
                 {{/ candidats}}
                 {{^ candidats}}
                     <tr>
-                        <td colspan="5">Aucun candidat trouvé</td>
+                        <td colspan="6">Aucun candidat trouvé</td>
                     </tr>
                 {{/ candidats}}
             {{/ formations}}
@@ -44,14 +46,20 @@
                             <td><a href="/candidat/getCandidat/{{idCandidat}}">{{nom}}</a></td>
                             <td><a href="/candidat/getCandidat/{{idCandidat}}">{{email}}</a></td>
                             <td>{{# formations}} <span class="tag is-info">{{libelle}}</span> {{/ formations}}</td>
+                            <td><a href="#" class="button is-dark is-small">{{prenom}}_{{nom}}.pdf</a></td>
                     </tr>
                 {{/ candidats}}
                 {{^ candidats}}
                 <tr>
-                    <td colspan="5">Aucun candidat trouvé</td>
+                    <td colspan="6">Aucun candidat trouvé</td>
                 </tr>
                 {{/ candidats}}
             {{/ formations}}
         </tbody>
     </table>
+    <div class="container buttons_action">
+        <a href="#" class="button is-info">Contacter <i class="fa-solid fa-envelope ml-1"></i></a>
+        <a href="#" class="button is-primary">Télécharger le CV <i class="fa-solid fa-download ml-1"></i></a>
+        <a href="#" class="button is-warning">Archiver <i class="fa-solid fa-box-archive ml-1"></i></a>
+    </div>
 {{> partials/footer }}
