@@ -12,6 +12,7 @@ window.addEventListener("load", () => {
                     request.text().then(requestBody => {
                         setTableContent(request, requestBody);
                         checkAll();
+                        showHideActionButtons();
                     })
                 });
             } else {
@@ -22,6 +23,7 @@ window.addEventListener("load", () => {
                     request.text().then(requestBody => {
                         setTableContent(request, requestBody);
                         checkAll();
+                        showHideActionButtons();
                     })
                 });
             }
@@ -61,5 +63,29 @@ window.addEventListener("load", () => {
         }
 
         checkAll();
+
+        // Show/hide actions buttons on click on checkbox(es)
+        function showHideActionButtons() {
+            document.querySelectorAll(".checkbox_candidat").forEach((oneCheckbox) => {
+                oneCheckbox.addEventListener("change", () => {
+                    let numberOfCheckedCandidates = document.querySelectorAll(".checkbox_candidat:checked").length;
+                    if (oneCheckbox.checked && numberOfCheckedCandidates > 1) {
+                        document.querySelector(".buttons_action").style.display = "flex";
+                        document.querySelector(".btn_contact").innerHTML = "Contacter les " + numberOfCheckedCandidates + " candidats sélectionnés <i class=\"fa-solid fa-envelope ml-1\"></i>";
+                        document.querySelector(".btn_cv").innerHTML = "Télécharger les CV des " + numberOfCheckedCandidates + " candidats sélectionnés <i class=\"fa-solid fa-download ml-1\"></i>";
+                        document.querySelector(".btn_archiver").innerHTML = "Archiver les " + numberOfCheckedCandidates + " candidats sélectionnés  <i class=\"fa-solid fa-box-archive ml-1\"></i>";
+                    } else if (oneCheckbox.checked) {
+                        document.querySelector(".buttons_action").style.display = "flex";
+                        document.querySelector(".btn_contact").innerHTML = "Contacter <i class=\"fa-solid fa-envelope ml-1\"></i>";
+                        document.querySelector(".btn_cv").innerHTML = "Télécharger le CV <i class=\"fa-solid fa-download ml-1\"></i>";
+                        document.querySelector(".btn_archiver").innerHTML = "Archiver <i class=\"fa-solid fa-box-archive ml-1\"></i>";
+                    } else {
+                        document.querySelector(".buttons_action").style.display = "none";
+                    }
+                });
+            });
+        }
+
+        showHideActionButtons();
     }
 });
