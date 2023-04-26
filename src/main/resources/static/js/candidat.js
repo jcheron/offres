@@ -35,6 +35,7 @@ window.addEventListener("load", () => {
 
         // Partie 2 - (Un/)Check all checkboxes on click on select all checkbox
         function checkAll() {
+            // Check all checkboxes if select all checkbox is checked
             document.querySelector("#select_all").addEventListener("change", () => {
                 if (document.querySelector("#select_all").checked) {
                     document.querySelectorAll(".checkbox_candidat").forEach((oneCheckbox) => {
@@ -45,6 +46,17 @@ window.addEventListener("load", () => {
                         oneCheckbox.checked = false;
                     })
                 }
+            });
+
+            // (Un)/Check select all checkbox if all checkboxes are checked
+            document.querySelectorAll(".checkbox_candidat").forEach((oneCheckbox) => {
+                oneCheckbox.addEventListener("change", () => {
+                    if(document.querySelectorAll(".checkbox_candidat").length === document.querySelectorAll(".checkbox_candidat:checked").length) {
+                        document.querySelector("#select_all").checked = true;
+                    } else {
+                        document.querySelector("#select_all").checked = false;
+                    }
+                });
             });
         }
 
