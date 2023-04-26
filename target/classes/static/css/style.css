@@ -82,3 +82,7 @@ input:checked + label:after {
     width: 100% !important;
     text-align: center !important;
 }
+
+.buttons_action {
+    display: none;
+}
