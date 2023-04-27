@@ -86,3 +86,7 @@ input:checked + label:after {
 .buttons_action {
     display: none;
 }
+
+.buttons_action a.button {
+    margin-right: 1% !important;
+}
