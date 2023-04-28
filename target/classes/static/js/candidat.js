@@ -1,5 +1,5 @@
 window.addEventListener("load", () => {
-    if (window.location.href.includes("candidat")) {
+    if (window.location.href.includes("candidat") && window.location.href.includes("getCandidat") == false) {
         // Partie 1 - Switch du listage standard des candidats au listage par formation
         document.querySelector("#toggl_formation").addEventListener("change", () => {
             let headers = new Headers();
