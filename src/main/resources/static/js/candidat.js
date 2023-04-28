@@ -95,5 +95,21 @@ window.addEventListener("load", () => {
         }
 
         callActionButtonsEvent();
+    }  else if(window.location.href.includes("getCandidat")) {
+        // Partie 3 - Candidat + ou -
+        function setPrevAndNextHrefs() {
+            let previous_candidate_id = parseInt(document.querySelector(".current_candidate_id").innerHTML) - 1;
+            if(previous_candidate_id > 0) {
+                document.querySelector(".previous_candidate").href = "/candidat/getCandidat/" + previous_candidate_id;
+                document.querySelector(".previous_candidate").style.display = "initial";
+            } else {
+                document.querySelector(".previous_candidate").style.display = "none";
+            }
+
+            let next_candidate_id = parseInt(document.querySelector(".current_candidate_id").innerHTML) + 1;
+            document.querySelector(".next_candidate").href = "/candidat/getCandidat/" + next_candidate_id;
+        }
+
+        setPrevAndNextHrefs();
     }
 });
