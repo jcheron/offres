@@ -94,3 +94,7 @@ input:checked + label:after {
 .current_candidate_id {
     display: none;
 }
+
+.candidats_list_length {
+    display: none;
+}

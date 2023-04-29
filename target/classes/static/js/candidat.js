@@ -99,6 +99,9 @@ window.addEventListener("load", () => {
         // Partie 3 - Candidat + ou -
         function setPrevAndNextHrefs() {
             let previous_candidate_id = parseInt(document.querySelector(".current_candidate_id").innerHTML) - 1;
+            let candidat_length = parseInt(document.querySelector(".candidats_list_length").innerHTML);
+            let current_candidate_id = parseInt(document.querySelector(".current_candidate_id").innerHTML);
+
             if(previous_candidate_id > 0) {
                 document.querySelector(".previous_candidate").href = "/candidat/getCandidat/" + previous_candidate_id;
                 document.querySelector(".previous_candidate").style.display = "initial";
@@ -106,8 +109,12 @@ window.addEventListener("load", () => {
                 document.querySelector(".previous_candidate").style.display = "none";
             }
 
-            let next_candidate_id = parseInt(document.querySelector(".current_candidate_id").innerHTML) + 1;
-            document.querySelector(".next_candidate").href = "/candidat/getCandidat/" + next_candidate_id;
+            if(current_candidate_id < candidat_length) {
+                let next_candidate_id = parseInt(document.querySelector(".current_candidate_id").innerHTML) + 1;
+                document.querySelector(".next_candidate").href = "/candidat/getCandidat/" + next_candidate_id;
+            } else {
+                document.querySelector(".next_candidate").style.display = "none";
+            }
         }
 
         setPrevAndNextHrefs();
