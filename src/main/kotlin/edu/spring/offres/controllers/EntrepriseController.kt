@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
 import org.springframework.ui.ModelMap
 import org.springframework.web.bind.annotation.*
-import org.springframework.web.servlet.view.RedirectView
 import java.util.*
 
 
@@ -51,4 +50,9 @@ class EntrepriseController {
         return ResponseEntity.ok(entreprises)
     }
 
+    @GetMapping("/details")
+    fun getDetailsEntreprise(@RequestParam("rs") rs: String, model: ModelMap): String {
+        if(entrepriseRepository.findByRs(rs) != null) model.addAttribute("entreprise",entrepriseRepository.findByRs(rs))
+        return "/entrep/details"
+    }
 }
