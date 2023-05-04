@@ -8,13 +8,32 @@
 
     <a class="button is-dark" href="/entrep/new">Ajouter une entreprise</a>
 
-    <table class="table is-bordered is-striped is-narrow is-hoverable  ">
+    <label for="input_rs">Rechercher par raison sociale</label>
+    <input id="input_rs" type="text">
 
-        {{#entreprises}}
-        <tr>
-            <td><a href="/entrep/details?rs={{rs}}">{{rs}} - {{email}}</a></td>
-        </tr>
-        {{/entreprises}}
+    <table class="table is-fullwidth is-striped">
+
+        <thead>
+            <tr>
+                <td>Raison sociale</td>
+                <td>Nombre d'offres</td>
+                <td>Détails</td>
+            </tr>
+        </thead>
+
+        <tbody id="entreps">
+            {{#entreprises}}
+            <tr>
+                <td>{{rs}}</td>
+
+                <!--Nombre d'offres ici -->
+                <td>Nb offres</td>
+
+                <td><a href="/entrep/details?rs={{rs}}">Voir le détail</a></td>
+            </tr>
+            {{/entreprises}}
+        </tbody>
+
     </table>
 </div>
 
@@ -24,4 +43,47 @@
         <li>Aucune entreprise existante</li>
     {{/entreprises}}
 </ul>
+
+<script>
+    document.getElementById("input_rs").addEventListener("input", function () {
+        let contenu = document.getElementById("input_rs").value;
+        fetch("/entrep/rs?contenu=" + encodeURIComponent(contenu)).then(async function (response) {
+            let list = document.getElementById("entreps");
+            if (response.status === 200) {
+                let entreprises = await response.json();
+                if (entreprises.size == "[]") {
+                    list.innerHTML = "Pas d'entreprises trouvées";
+                } else {
+                    list.innerHTML = "";
+                    //Création de la liste
+                    entreprises.forEach(function (entreprise) {
+                        let tr = document.createElement("tr");
+                        let tdrs = document.createElement("td");
+                        tdrs.href = "/entrep/details?rs=" + entreprise.rs;
+                        tdrs.textContent = entreprise.rs;
+
+                        let tdoffres = document.createElement("td");
+
+                        //Mettre offres ici
+                        tdoffres.textContent = "offres";
+
+                        let tddetails = document.createElement("td");
+
+                        let adetails = document.createElement("a");
+                        adetails.href = "/entrep/details?rs=" + entreprise.rs;
+                        adetails.textContent = "Voir le détail";
+                        tddetails.appendChild(adetails);
+
+                        tr.appendChild(tdrs);
+                        tr.appendChild(tdoffres);
+                        tr.appendChild(tddetails);
+                        list.appendChild(tr);
+                    });
+                }
+            } else {
+                list.innerHTML = "Erreur lors de la requete";
+            }
+        });
+    });
+</script>
 {{> partials/footer }}
