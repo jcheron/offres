@@ -64,7 +64,10 @@
                     //Création de la liste
                     entreprises.forEach(function (entreprise) {
                         let li = document.createElement("li");
-                        li.textContent = entreprise.rs;
+                        let a = document.createElement("a");
+                        a.href = "/entrep/details?rs=" + entreprise.rs;
+                        a.textContent = entreprise.rs;
+                        li.appendChild(a);
                         list.appendChild(li);
                     });
                 }

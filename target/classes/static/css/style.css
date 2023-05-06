@@ -55,8 +55,8 @@ input:checked + label:after {
 
 .candidat_row td a {
     display:block;
-    height:100%;
-    width:100%;
+    height:100% !important;
+    width:100% !important;
     color: grey;
 }
 
@@ -71,8 +71,30 @@ input:checked + label:after {
 
 .formation_row {
     background: #a6a6a6 !important;
+    color: white !important;
 }
 
 .subtitle_oneCandidat {
     text-align: center;
+}
+
+.user_icon i {
+    width: 100% !important;
+    text-align: center !important;
+}
+
+.buttons_action {
+    display: none;
+}
+
+.buttons_action a.button {
+    margin-right: 1% !important;
+}
+
+.current_candidate_id {
+    display: none;
+}
+
+.candidats_list_length {
+    display: none;
 }
