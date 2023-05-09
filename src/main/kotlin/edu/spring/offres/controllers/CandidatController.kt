@@ -53,4 +53,9 @@ class CandidatController {
         model["candidats"] = candidatRepository.findAll();
         return "/candidat/ficheCandidat";
     }
+
+    @GetMapping("/create")
+    fun createCandidatForm() : String {
+        return "/candidat/form";
+    }
 }
