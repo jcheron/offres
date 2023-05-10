@@ -1,5 +1,6 @@
 package edu.spring.offres.controllers
 
+import edu.spring.offres.entities.Candidat
 import edu.spring.offres.entities.Formation
 import edu.spring.offres.repositories.CandidatRepository
 import edu.spring.offres.repositories.FormationRepository
@@ -8,10 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.ModelMap
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.ModelAttribute
 import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.ResponseBody
-import org.springframework.web.servlet.ModelAndView
 
 @Controller
 @RequestMapping("/candidat")
@@ -57,5 +59,11 @@ class CandidatController {
     @GetMapping("/create")
     fun createCandidatForm() : String {
         return "/candidat/form";
+    }
+
+    @PostMapping("/addCandidat")
+    fun createCandidat(@ModelAttribute candidat : Candidat) : String {
+        candidatRepository.save(candidat);
+        return "redirect:/candidat";
     }
 }

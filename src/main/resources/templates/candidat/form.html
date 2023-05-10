@@ -3,23 +3,25 @@
 <a href="/candidat/index" class="button is-info mb-3"><i class="fa-solid fa-chevron-left mr-1"></i> Retour à la liste de candidats</a>
   <div class="columns is-centered is-vcentered is-mobile">
     <div class="column is-9">
-      <form method="post" class="box">
+      <form method="POST" class="box candidat_form" action="/candidat/addCandidat">
         <label for="firstname">Prénom<span class="required" title="requis">*</span> :</label>
-        <input type="text" placeholder="Prénom" name="firstname" id="firstname" class="input is-rounded mb-1" />
+        <input type="text" placeholder="Prénom" name="prenom" id="firstname" class="input is-rounded mb-1" required />
 
         <label for="lastname">Nom<span class="required" title="requis">*</span> :</label>
-        <input type="text" placeholder="Nom" name="lastname" id="lastname" class="input is-rounded mb-1" />
+        <input type="text" placeholder="Nom" name="nom" id="lastname" class="input is-rounded mb-1" required />
 
         <label for="email">Email<span class="required" title="requis">*</span> :</label>
-        <input type="email" placeholder="Email" name="email" id="email" class="input is-rounded mb-1" />
+        <input type="email" placeholder="Email" name="email" id="email" class="input is-rounded mb-1" required />
 
         <label for="phone">Téléphone<span class="required" title="requis">*</span> :</label>
-        <input type="tel" placeholder="Téléphone" name="phone" id="phone" class="input is-rounded mb-1" />
+        <input type="tel" placeholder="Téléphone" name="numeroTel" id="phone" class="input is-rounded mb-1" required />
 
         <label for="city">Ville<span class="required" title="requis">*</span> :</label>
-        <input type="text" placeholder="Ville" name="city" id="city" class="input is-rounded mb-1" />
+        <input type="text" placeholder="Ville" name="ville" id="city" class="input is-rounded mb-1" required />
 
-        <label for="cv">CV<span class="required" title="requis">*</span> :</label>
+        <input type="hidden" name="reference" id="referenceCandidat">
+
+        <!--<label for="cv">CV :</label>
         <div class="file is-dark mb-3">
           <label class="file-label">
             <input class="file-input" type="file" name="cv" id="cv">
@@ -32,7 +34,7 @@
           </span>
         </span>
           </label>
-        </div>
+        </div>-->
 
         <div class="container has-text-centered">
           <button class="button is-success">+ Créer</button>
