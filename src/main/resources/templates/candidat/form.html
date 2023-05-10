@@ -1,3 +1,25 @@
 {{> partials/header}}
   <h1 class="title">Créer un candidat</h1>
+<a href="/candidat/index" class="button is-info mb-3"><i class="fa-solid fa-chevron-left mr-1"></i> Retour à la liste de candidats</a>
+  <form method="post">
+    <label for="firstname">Prénom <span class="required" title="requis">*</span> :</label>
+    <input type="text" placeholder="Prénom" name="firstname" id="firstname" />
+
+    <label for="lastname">Nom <span class="required" title="requis">*</span> :</label>
+    <input type="text" placeholder="Nom" name="lastname" id="lastname" />
+
+    <label for="email">Email <span class="required" title="requis">*</span> :</label>
+    <input type="email" placeholder="Email" name="email" id="email" />
+
+    <label for="phone">Téléphone <span class="required" title="requis">*</span> :</label>
+    <input type="tel" placeholder="Téléphone" name="phone" id="phone" />
+
+    <label for="city">Ville <span class="required" title="requis">*</span> :</label>
+    <input type="text" placeholder="Ville" name="city" id="city" />
+
+    <label for="cv">CV <span class="required" title="requis">*</span> :</label>
+    <input type="file" placeholder="CV" name="cv" id="cv" />
+
+    <button>+ Créer</button>
+  </form>
 {{> partials/footer}}
