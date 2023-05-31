@@ -98,3 +98,7 @@ input:checked + label:after {
 .candidats_list_length {
     display: none;
 }
+
+.required {
+    color: red;
+}

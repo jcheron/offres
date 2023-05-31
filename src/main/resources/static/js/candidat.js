@@ -1,5 +1,5 @@
 window.addEventListener("load", () => {
-    if (window.location.href.includes("candidat") && window.location.href.includes("getCandidat") == false) {
+    if (window.location.href.includes("candidat") && window.location.href.includes("getCandidat") == false && window.location.href.includes("candidat/create") == false) {
         // Partie 1 - Switch du listage standard des candidats au listage par formation
         document.querySelector("#toggl_formation").addEventListener("change", () => {
             let headers = new Headers();
@@ -118,5 +118,19 @@ window.addEventListener("load", () => {
         }
 
         setPrevAndNextHrefs();
+    } else if(window.location.href.includes("candidat/create")) {
+        document.querySelector(".candidat_form #firstname").addEventListener("keyup", () => {
+            setReference();
+        });
+
+        document.querySelector(".candidat_form #lastname").addEventListener("keyup", () => {
+            setReference();
+        });
+
+        function setReference() {
+            let firstnameFirstLetter = document.querySelector(".candidat_form #firstname").value.charAt(0).toUpperCase();
+            let lastNameFirstLetter = document.querySelector(".candidat_form #lastname").value.charAt(0).toUpperCase();
+            document.querySelector("#referenceCandidat").value = firstnameFirstLetter + lastNameFirstLetter + Math.floor(Math.random());
+        }
     }
 });
